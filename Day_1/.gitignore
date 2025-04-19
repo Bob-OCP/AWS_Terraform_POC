@@ -1,0 +1,25 @@
+# Terraform cache & state
+.terraform/
+*.tfstate
+*.tfstate.backup
+crash.log
+
+# Sensitive variable overrides
+*.tfvars
+
+# Lock file (optional — if you're sharing the project, you might want to keep it)
+.terraform.lock.hcl
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Log or temp files
+*.log
+*.bak
+*.swp
+
+# IDE folders (optional)
+.vscode/
+.idea/
+
