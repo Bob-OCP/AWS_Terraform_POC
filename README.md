@@ -2,7 +2,7 @@
 # Day 1: Deploy EC2 with Apache in AWS Free Tier (Terraform)
 
 This is **Day 1** of my AWS Terraform Proof-of-Concept. The goal was to create a public web server running Apache in the AWS Free Tier using Terraform, with fully portable code that can be deployed to any region and AZ.
-As of time of this writing, the webpage can be seen at ec2-35-91-15-233.us-west-2.compute.amazonaws.com but that could change if the server is reboot since it does not have a static IP.
+A screenshot of the running website is in the repository named "Webserver_URL_Screenshot.png"
 
 ---
 
