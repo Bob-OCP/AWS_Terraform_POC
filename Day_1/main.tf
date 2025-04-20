@@ -90,17 +90,36 @@ resource "aws_instance" "webservers" {
 	vpc_security_group_ids = [aws_security_group.webservers_sg.id]				
 	subnet_id = data.aws_subnet.default_az_subnet.id
 	
+
 	user_data = <<-EOF
 		#!/bin/bash
 		yum update -y
-		yum install -y httpd
+		yum install -y httpd php -y
 		systemctl start httpd
 		systemctl enable httpd
-		echo "<h1>Deployed with Terraform in ${var.region}</h1>" > /var/www/html/index.html
-		EOF
 
+		cat <<EOPHP > /var/www/html/index.php
+			<html>
+				<head>
+					<title>Welcome to My EC2 Instance</title>
+				</head>
+				<body>
+					<h1>Welcome to My EC2 Instance -- Created with Terrafom</h1>
+					<p>This instance name is:
+						<strong><?php echo file_get_contents("http://169.254.169.254/latest/meta-data/hostname"); ?></strong>
+					</p>
+
+					<p>This instance is running in Availability Zone:
+						<strong><?php echo file_get_contents("http://169.254.169.254/latest/meta-data/placement/availability-zone"); ?></strong>
+					</p>
+				</body>
+			</html>
+		EOPHP  # cat
+
+	EOF
+	
 	tags = {
-	Name = "Day1-WebServer"
+		Name = "Day1-WebServer"
 	} #tags
 } #resource
 
