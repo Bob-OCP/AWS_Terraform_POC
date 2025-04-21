@@ -41,6 +41,9 @@ terraform.tfvars	Actual values used for the variables
 🧠 Notes
 This was my first-ever Terraform project and the first day of my full AWS POC build. I chose to start with the basics — provisioning infrastructure as code, creating a working EC2 web server, and proving that I could build portable, modular Terraform from scratch.
 
+## 🔧 Recent Updates
+- **04/21/25**: Added PHP date display to show instance creation time. Added POC_Key to fix SSH connectivity.
+
 ✅ Status
 Deployed and verified
 
