@@ -1,53 +1,26 @@
-# AWS_Terraform_POC
-# Day 1: Deploy EC2 with Apache in AWS Free Tier (Terraform)
+# AWS Terraform Proof-of-Concept
 
-This is **Day 1** of my AWS Terraform Proof-of-Concept. The goal was to create a public web server running Apache in the AWS Free Tier using Terraform, with fully portable code that can be deployed to any region and AZ.
-A screenshot of the running website is in the repository named "Webserver_URL_Screenshot.png"
+This repository showcases a multi-day AWS infrastructure build using **Terraform**, completed entirely within the AWS Free Tier. Each milestone is isolated in its own folder, with fully documented Terraform code and supporting material.
 
----
-
-## 🚀 What This Build Includes
-
-- ✅ Amazon Linux 2 EC2 instance
-- ✅ Apache web server installed via `user_data`
-- ✅ Security Group with SSH (22) and HTTP (80) open to the world
-- ✅ Subnet and AZ assignment via variables
-- ✅ Region-portable AMI lookup
-- ✅ Clean `.gitignore` and no state files committed
+The goal: prove real-world cloud architecture skills using infrastructure as code, version control, and public documentation — all while maintaining portability, clarity, and AWS best practices.
 
 ---
 
-## 🌎 Deployment Instructions
+## 📅 Project Milestones
 
-```bash
-terraform init
-terraform plan
-terraform apply
-This will launch the EC2 instance and output the public IP.
+- [Day 1: Deploy EC2 with Apache (Fully Portable)](./Day_1/README.md)
+    - Launches an EC2 instance with Apache via `user_data`
+    - Portable across AWS regions and availability zones
+    - Dynamically displays metadata and creation time in a PHP-based landing page
 
-Open your browser and visit the IP — you should see:
+> More milestones coming soon (subnet design, NAT, ALB, ASG, S3 failover, Route 53 latency routing...)
 
-html
-Copy
-Edit
-<h1>Deployed with Terraform in us-west-2</h1>
-📁 Files
+---
 
-File	Purpose
-main.tf	Infrastructure definition (EC2, SG, Subnet)
-variables.tf	Inputs for instance type, region, AZ
-terraform.tfvars	Actual values used for the variables
-.gitignore	Ignores .terraform, state files, etc.
-🧠 Notes
-This was my first-ever Terraform project and the first day of my full AWS POC build. I chose to start with the basics — provisioning infrastructure as code, creating a working EC2 web server, and proving that I could build portable, modular Terraform from scratch.
+## 👨‍💻 About the Author
 
-## 🔧 Recent Updates
-- **04/21/25**: Added PHP date display to show instance creation time. Added POC_Key to fix SSH connectivity.
+I'm a certified AWS Solutions Architect Associate with 20+ years in infrastructure and Citrix architecture. I built this from scratch as part of a full career pivot into cloud architecture. Each piece of this POC reflects hands-on learning, tested assumptions, and documented decisions.
 
-✅ Status
-Deployed and verified
+---
 
-Pushed to GitHub with Git history cleaned
-
-Ready for reuse and expansion in future milestones
-# AWS_Terraform_POC
+📬 Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/your-link-here) or check out my [AWS Walkthrough Video](https://www.youtube.com/watch?v=e-Zx8v0smX4) for a full tour.
