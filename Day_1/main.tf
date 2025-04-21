@@ -89,7 +89,7 @@ resource "aws_instance" "webservers" {
 	instance_type = var.instance_type												 
 	vpc_security_group_ids = [aws_security_group.webservers_sg.id]				
 	subnet_id = data.aws_subnet.default_az_subnet.id
-	
+	key_name = "POC_Key"
 
 	user_data = <<-EOF
 		#!/bin/bash
@@ -104,7 +104,7 @@ resource "aws_instance" "webservers" {
 					<title>Welcome to My EC2 Instance</title>
 				</head>
 				<body>
-					<h1>Welcome to My EC2 Instance -- Created with Terrafom</h1>
+					<h1>Welcome to My EC2 Instance -- Created with Terraform</h1>
 					<p>This instance name is:
 						<strong><?php echo file_get_contents("http://169.254.169.254/latest/meta-data/hostname"); ?></strong>
 					</p>
@@ -112,14 +112,16 @@ resource "aws_instance" "webservers" {
 					<p>This instance is running in Availability Zone:
 						<strong><?php echo file_get_contents("http://169.254.169.254/latest/meta-data/placement/availability-zone"); ?></strong>
 					</p>
+					<p>This instance was created on:
+						<strong><?php echo date("Y-m-d H:i:s"); ?></strong>
+					</p>
 				</body>
 			</html>
-		EOPHP  # cat
-
+		EOPHP
 	EOF
 	
 	tags = {
-		Name = "Day1-WebServer"
+		Name = "WebServer-Day1"
 	} #tags
 } #resource
 
